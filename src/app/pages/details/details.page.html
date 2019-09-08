@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" >
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-grid no-padding >
+    <ion-row>
+      <ion-col padding>
+          <ion-item lines="none" no-padding>
+              <ion-avatar slot="start" >
+                  <ion-img src="/assets/shapes.svg"></ion-img>
+              </ion-avatar>
+
+              <ion-label>
+                <h3>Sam Prabin</h3>
+                <p>Chennai @ Sunday 4pm</p>
+              </ion-label>
+
+              <ion-buttons (click)="presentActionSheet()" >
+                  <ion-icon name="more" slot="icon-only" color="dark"></ion-icon>
+              </ion-buttons>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+
+   <ion-row >
+    <ion-col no-padding >
+      <ion-img src="/assets/img/edandraCrowdfunding-min.jpg" ></ion-img>
+    </ion-col>
+   </ion-row>
+
+   <ion-row>
+     <ion-col padding>
+        <ion-item  no-padding>
+            <ion-label text-wrap>
+              <h3>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                  Asperiores, sequi ea placeat expedita ducimus ratione itaque repellat modi aliquid, 
+                  earum, fugiat vel repudiandae numquam cumque nesciunt neque consequuntur doloremque esse!
+              </h3>
+            </ion-label>
+        </ion-item>
+     </ion-col>
+   </ion-row>
+
+   <ion-row class="ion-justify-content-center">
+      <ion-col size="4">
+        <ion-buttons justify-content-center>
+          <ion-button>
+            <ion-icon name="thumbs-up" slot="start" color="medium"></ion-icon>
+          </ion-button>
+            Support
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="4" >
+          <ion-buttons justify-content-center>
+            <ion-button>
+              <ion-icon name="share" slot="start" color="medium"></ion-icon>
+            </ion-button>
+            Share
+          </ion-buttons>
+      </ion-col>
+      <ion-col size="4">
+        <ion-buttons justify-content-center>
+          <ion-button>
+            <ion-icon name="thumbs-down" slot="start" color="medium"></ion-icon>
+          </ion-button>
+          Oppose
+        </ion-buttons>
+      </ion-col>
+   </ion-row>
+
+   <ion-row margin-top>
+     <ion-col>
+         <ion-button shape="round" fill="outline" color="danger">
+           Sponsor
+           <ion-icon name="heart" slot="end" ></ion-icon>
+         </ion-button>
+         <ion-button shape="round" fill="outline">
+          View Analytics
+          <ion-icon name="analytics" slot="end" ></ion-icon>
+        </ion-button>
+        <br>
+     </ion-col>
+   </ion-row>
+
+   <ion-row >
+      <ion-col>
+        <ion-button shape="round" fill="outline">
+          Update Promise
+          <ion-icon name="megaphone" slot="end" ></ion-icon>
+        </ion-button>
+      </ion-col>
+   </ion-row>
+
+   <ion-row>
+     <ion-col padding>
+      <ion-label text-wrap>
+          <h3>
+              Details
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Deleniti aliquid quisquam nisi! Dignissimos laudantium porro 
+            expedita cupiditate id in vero aperiam officiis rem esse soluta, 
+            nam quia consequuntur aut obcaecati.
+          </p>
+        </ion-label>
+     </ion-col>
+   </ion-row>
+
+   <ion-row>
+     <ion-col>
+        <ion-segment (ionChange)="changeTabView($event)">
+            <ion-segment-button value="comments" [checked]="tabView === 'comments'" >
+              <ion-label>Comments (200)</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="updates" [checked]="tabView === 'updates'" >
+              <ion-label>Updates</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+     </ion-col>
+   </ion-row>
+
+   <app-comment-card *ngIf="tabView === 'comments'"></app-comment-card>
+   <app-updates-card *ngIf="tabView === 'updates'" ></app-updates-card>
+
+ </ion-grid>
+</ion-content>

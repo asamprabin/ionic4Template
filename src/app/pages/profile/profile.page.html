@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card>
+
+    <ion-avatar class="profile-page-image" padding>
+      <ion-img src="/assets/img/edandraCrowdfunding-min.jpg"></ion-img>
+    </ion-avatar>
+
+    <ion-card-content>
+      <ion-card-title text-center>Sam Prabin</ion-card-title>
+      <p text-center padding-bottom >Lorem ipsum dolor, sit amet consectetur 
+        adipisicing elit. Quis saepe esse in itaque tempore a 
+        eius quos sit quidem nemo. Veniam necessitatibus neque 
+        error aperiam expedita eos incidunt unde quibusdam!
+      </p>
+
+      <ion-item>
+        <ion-label>Trusting</ion-label>
+        <p item-end>123</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Trusted by</ion-label>
+        <p item-end>12234</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Funds Raised</ion-label>
+        <p item-end>123456</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Location</ion-label>
+        <p item-end>Chennai</p>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <!-- Scrollable Segment -->
+    <ion-segment scrollable padding (ionChange)="changeTabView($event)">
+      <ion-segment-button value="promise" [checked]="tabView === 'promise'" >Promises</ion-segment-button>
+      <ion-segment-button value="sponsored" [checked]="tabView === 'sponsored'" >Sponsored</ion-segment-button>
+      <ion-segment-button value="trusting" [checked]="tabView === 'trusting'" >Trusting</ion-segment-button>
+      <ion-segment-button value="notifying" [checked]="tabView === 'notifying'" >Notifying</ion-segment-button>
+    </ion-segment>
+
+    <app-view-promises *ngIf="tabView === 'promise'" ></app-view-promises>
+    <app-view-notifying *ngIf="tabView === 'notifying'" ></app-view-notifying>
+    <app-view-sponsored *ngIf="tabView === 'sponsored'" ></app-view-sponsored>
+    <app-view-trusting *ngIf="tabView === 'trusting'" ></app-view-trusting>
+  </ion-card>
+</ion-content>

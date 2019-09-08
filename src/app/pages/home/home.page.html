@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Iraniyam</ion-title>
+    <ion-buttons slot="primary" >
+      <ion-button routerLink="/newpromise" >
+        <ion-icon name="add-circle-outline" slot="icon-only" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed">
+    <ion-refresher-content (ionRefresh)="doRefresh($event)"></ion-refresher-content>
+  </ion-refresher>
+
+  <app-promise-card></app-promise-card>
+  <app-promise-card></app-promise-card>
+  <app-promise-card></app-promise-card>
+
+</ion-content>
